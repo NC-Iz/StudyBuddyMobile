@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="StudyBuddyMobile.Views.ProfilePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="My Profile"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30">
+
+            <!-- Profile Header -->
+            <Frame BackgroundColor="#4f46e5"
+                   CornerRadius="15"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="👤"
+                           FontSize="48"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="UserNameLabel"
+                           Text="User Name"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="UserEmailLabel"
+                           Text="user@email.com"
+                           FontSize="16"
+                           TextColor="White"
+                           Opacity="0.9"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Profile Information -->
+            <Label Text="Profile Information"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#1f2937" />
+
+            <!-- Name Field -->
+            <Label Text="Full Name"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#374151" />
+
+            <Entry x:Name="NameEntry"
+                   FontSize="16"
+                   BackgroundColor="#f9fafb"
+                   TextColor="#111827" />
+
+            <!-- Study Interests -->
+            <Label Text="Study Interests"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#374151" />
+
+            <Editor x:Name="StudyInterestsEditor"
+                    FontSize="16"
+                    BackgroundColor="#f9fafb"
+                    TextColor="#111827"
+                    HeightRequest="100"
+                    Placeholder="Enter your study interests separated by commas..." />
+
+            <!-- Account Stats -->
+            <Label Text="Account Statistics"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#1f2937"
+                   Margin="0,20,0,0" />
+
+            <Grid ColumnDefinitions="*,*" 
+                  RowDefinitions="Auto,Auto"
+                  ColumnSpacing="15"
+                  RowSpacing="15">
+
+                <!-- Member Since -->
+                <Frame Grid.Column="0" Grid.Row="0"
+                       BackgroundColor="#f0f9ff"
+                       CornerRadius="10"
+                       Padding="15">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="📅"
+                               FontSize="24"
+                               HorizontalOptions="Center" />
+                        <Label x:Name="MemberSinceLabel"
+                               Text="Jan 2024"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="#1e40af" />
+                        <Label Text="Member Since"
+                               FontSize="12"
+                               HorizontalOptions="Center"
+                               TextColor="#6b7280" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Last Login -->
+                <Frame Grid.Column="1" Grid.Row="0"
+                       BackgroundColor="#f0fdf4"
+                       CornerRadius="10"
+                       Padding="15">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="🕐"
+                               FontSize="24"
+                               HorizontalOptions="Center" />
+                        <Label x:Name="LastLoginLabel"
+                               Text="Today"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="#15803d" />
+                        <Label Text="Last Login"
+                               FontSize="12"
+                               HorizontalOptions="Center"
+                               TextColor="#6b7280" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Action Buttons -->
+            <VerticalStackLayout Spacing="15" Margin="0,30,0,0">
+
+                <Button x:Name="UpdateProfileButton"
+                        Text="Update Profile"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        BackgroundColor="#10b981"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="50"
+                        Clicked="OnUpdateProfileClicked" />
+
+                <Button x:Name="LogoutButton"
+                        Text="Logout"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        BackgroundColor="#ef4444"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="50"
+                        Clicked="OnLogoutClicked" />
+                
+                <Button x:Name="DeactivateButton"
+                        Text="Deactivate Account"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        BackgroundColor="#6b7280"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="45"
+                        Clicked="OnDeactivateClicked" />
+
+            </VerticalStackLayout>
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator x:Name="LoadingIndicator"
+                             IsVisible="False"
+                             IsRunning="False"
+                             Color="#4f46e5" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="StudyBuddyMobile.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Study Buddy Mobile">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
+
+            <!-- Welcome Header -->
+            <Image Source="dotnet_bot.png"
+                   HeightRequest="185"
+                   Aspect="AspectFit" />
+
+            <Label x:Name="WelcomeLabel"
+                   Text="Welcome to Study Buddy!"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Your mobile learning companion"
+                   FontSize="18"
+                   HorizontalOptions="Center" />
+
+            <!-- User Input -->
+            <Entry x:Name="NameEntry"
+                   Placeholder="Enter your name"
+                   FontSize="18"
+                   HorizontalOptions="Center" />
+
+            <!-- Buttons -->
+            <Button x:Name="GreetBtn"
+                    Text="Say Hello"
+                    FontSize="18"
+                    Clicked="OnGreetClicked" />
+
+            <Button x:Name="CounterBtn"
+                    Text="Click me"
+                    FontSize="18"
+                    Clicked="OnCounterClicked" />
+
+            <!-- Counter Display -->
+            <Label x:Name="CounterLabel"
+                   Text="Clicked 0 times"
+                   FontSize="18"
+                   HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
