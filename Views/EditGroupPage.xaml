@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="StudyBuddyMobile.Views.EditGroupPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Edit Study Group"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="25">
+
+            <!-- Header -->
+            <Frame BackgroundColor="#f59e0b"
+                   CornerRadius="15"
+                   Padding="20"
+                   Margin="0,0,0,10">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="✏️ Edit Study Group"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center" />
+                    <Label Text="Update your group information"
+                           FontSize="14"
+                           TextColor="White"
+                           Opacity="0.9"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Current Group Info -->
+            <Frame BackgroundColor="#f0f9ff"
+                   BorderColor="#4f46e5"
+                   CornerRadius="10"
+                   Padding="15"
+                   HasShadow="False">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="📋 Current Group Info"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#4f46e5" />
+                    <Label x:Name="CurrentInfoLabel"
+                           Text="Loading current group information..."
+                           FontSize="12"
+                           TextColor="#6b7280" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Edit Form -->
+            <VerticalStackLayout Spacing="20">
+
+                <!-- Group Name -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="📝 Group Name"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#374151" />
+                    <Entry x:Name="GroupNameEntry"
+                           FontSize="16"
+                           BackgroundColor="#f9fafb"
+                           TextColor="#111827" />
+                </VerticalStackLayout>
+
+                <!-- Subject -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="📚 Subject"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#374151" />
+                    <Entry x:Name="SubjectEntry"
+                           FontSize="16"
+                           BackgroundColor="#f9fafb"
+                           TextColor="#111827" />
+                </VerticalStackLayout>
+
+                <!-- Description -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="📋 Description"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#374151" />
+                    <Editor x:Name="DescriptionEditor"
+                            FontSize="16"
+                            BackgroundColor="#f9fafb"
+                            TextColor="#111827"
+                            HeightRequest="120" />
+                </VerticalStackLayout>
+
+                <!-- Max Members -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="👥 Maximum Members"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#374151" />
+                    <Picker x:Name="MaxMembersPicker"
+                            Title="Select maximum members"
+                            FontSize="16"
+                            BackgroundColor="#f9fafb"
+                            TextColor="#111827">
+                        <Picker.Items>
+                            <x:String>5</x:String>
+                            <x:String>10</x:String>
+                            <x:String>15</x:String>
+                            <x:String>20</x:String>
+                            <x:String>25</x:String>
+                            <x:String>30</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </VerticalStackLayout>
+
+                <!-- Group Visibility -->
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="👁️ Group Visibility"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#374151" />
+
+                    <Frame BackgroundColor="#f0f9ff"
+                           BorderColor="#4f46e5"
+                           CornerRadius="10"
+                           Padding="15"
+                           HasShadow="False">
+                        <VerticalStackLayout Spacing="15">
+
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <RadioButton x:Name="PublicRadio"
+                                           GroupName="VisibilityGroup"
+                                           Value="True" />
+                                <VerticalStackLayout Spacing="3">
+                                    <Label Text="🌐 Public Group"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#1f2937" />
+                                    <Label Text="Anyone can find and join this group"
+                                           FontSize="12"
+                                           TextColor="#6b7280" />
+                                </VerticalStackLayout>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <RadioButton x:Name="PrivateRadio"
+                                           GroupName="VisibilityGroup"
+                                           Value="False" />
+                                <VerticalStackLayout Spacing="3">
+                                    <Label Text="🔒 Private Group"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#1f2937" />
+                                    <Label Text="Invite only (Coming Soon)"
+                                           FontSize="12"
+                                           TextColor="#6b7280"
+                                           FontAttributes="Italic" />
+                                </VerticalStackLayout>
+                            </StackLayout>
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </VerticalStackLayout>
+
+                <!-- Action Buttons -->
+                <VerticalStackLayout Spacing="12" Margin="0,20,0,0">
+
+                    <Button x:Name="UpdateGroupButton"
+                            Text="💾 Update Group"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            BackgroundColor="#10b981"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HeightRequest="50"
+                            Clicked="OnUpdateGroupClicked" />
+
+                    <Button x:Name="CancelButton"
+                            Text="Cancel"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            BackgroundColor="#6b7280"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HeightRequest="45"
+                            Clicked="OnCancelClicked" />
+
+                </VerticalStackLayout>
+
+                <!-- Loading Indicator -->
+                <ActivityIndicator x:Name="LoadingIndicator"
+                                 IsVisible="False"
+                                 IsRunning="False"
+                                 Color="#f59e0b"
+                                 VerticalOptions="Center" />
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

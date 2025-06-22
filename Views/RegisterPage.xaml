@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="StudyBuddyMobile.Views.RegisterPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Study Buddy - Register"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+            <!-- App Logo/Title -->
+            <Label Text="📚 Study Buddy"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#4f46e5"
+                   Margin="0,0,0,20" />
+
+            <Label Text="Join Study Buddy"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#1f2937" />
+
+            <Label Text="Create your account and start learning"
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   TextColor="#6b7280"
+                   Margin="0,0,0,20" />
+
+            <!-- Full Name Input -->
+            <Label Text="Full Name"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#374151" />
+
+            <Entry x:Name="NameEntry"
+                   Placeholder="Enter your full name"
+                   FontSize="16"
+                   BackgroundColor="#f9fafb"
+                   TextColor="#111827" />
+
+            <!-- Email Input -->
+            <Label Text="Email Address"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#374151" />
+
+            <Entry x:Name="EmailEntry"
+                   Placeholder="Enter your email"
+                   Keyboard="Email"
+                   FontSize="16"
+                   BackgroundColor="#f9fafb"
+                   TextColor="#111827" />
+
+            <!-- Password Input -->
+            <Label Text="Password"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#374151" />
+
+            <Entry x:Name="PasswordEntry"
+                   Placeholder="Create a password (min 6 characters)"
+                   IsPassword="True"
+                   FontSize="16"
+                   BackgroundColor="#f9fafb"
+                   TextColor="#111827" />
+
+            <!-- Confirm Password Input -->
+            <Label Text="Confirm Password"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#374151" />
+
+            <Entry x:Name="ConfirmPasswordEntry"
+                   Placeholder="Confirm your password"
+                   IsPassword="True"
+                   FontSize="16"
+                   BackgroundColor="#f9fafb"
+                   TextColor="#111827" />
+
+            <!-- Study Interests Input -->
+            <Label Text="Study Interests (Optional)"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#374151" />
+
+            <Editor x:Name="StudyInterestsEditor"
+                    Placeholder="e.g., Mathematics, Computer Science, Physics..."
+                    FontSize="16"
+                    BackgroundColor="#f9fafb"
+                    TextColor="#111827"
+                    HeightRequest="80" />
+
+            <!-- Register Button -->
+            <Button x:Name="RegisterButton"
+                    Text="Create Account"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    BackgroundColor="#10b981"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="50"
+                    Margin="0,20,0,0"
+                    Clicked="OnRegisterClicked" />
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator x:Name="LoadingIndicator"
+                             IsVisible="False"
+                             IsRunning="False"
+                             Color="#10b981" />
+
+            <!-- Login Link -->
+            <StackLayout Orientation="Horizontal" 
+                        HorizontalOptions="Center"
+                        Margin="0,20,0,0">
+                <Label Text="Already have an account?"
+                       FontSize="14"
+                       TextColor="#6b7280" />
+                <Label Text="Sign in here"
+                       FontSize="14"
+                       TextColor="#4f46e5"
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLoginTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
